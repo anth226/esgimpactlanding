@@ -17,7 +17,7 @@ try {
         // Send an email
         $sendResult = $client->sendEmailWithTemplate(
             "no-reply@aslingga.com",
-            "aslingga@gmail.com",
+            "contact@esgi.io",
             "esgi-contact-page",
             [
                 "product_url" => "http://localhost",
@@ -29,15 +29,17 @@ try {
                 "company_name" => "Company Name",
                 "company_address" => "Company Address",        
             ],
+            true, NULL, NULL, NULL,
+            'aslingga@gmail.com'
         );
         
         if ($sendResult->errorcode == 0) {
-            echo json_encode(['result' => 'success', 'alert' => 'success', 'message' => 'Thank you for contacting us.']);
+            echo json_encode(['result' => 'success', 'alert' => 'success', 'message' => 'Thank you for contacting us. We have received your message.']);
         } else {
             echo json_encode(['result' => 'error', 'alert' => 'error', 'message' => 'An <strong>Unexpected Error</strong> has occurred! Pleas try again later.']);
         }
     } else {
-        echo json_encode(['result' => 'error', 'alert' => 'error', 'message' => 'Bot <strong>detected</strong>.! Clean yourself botster.']);
+        echo json_encode(['result' => 'error', 'alert' => 'error', 'message' => 'Bot <strong>detected</strong>! Clean yourself botster.']);
     }
 } catch (Exception $e) {
     echo json_encode(['result' => 'error', 'alert' => 'error', 'message' => 'An <strong>Unexpected Error</strong> has occurred! Pleas try again later.']);

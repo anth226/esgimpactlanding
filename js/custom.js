@@ -13,7 +13,6 @@ $("#mc-form-submit").click(function() {
 			if (resp.result === 'success') {
 				$('.subscribe-result').html(resp.message).fadeIn(1000);
 				setTimeout(function(){
-					$('.subscribe-result').fadeOut(5000);
 					$('.subscribe-form input[type="email"]').val('');
 				}, 3000);
 			} else if(resp.result === 'error') {
