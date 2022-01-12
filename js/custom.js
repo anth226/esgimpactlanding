@@ -1,5 +1,7 @@
 // this is the id of the submit button
 $("#mc-form-submit").click(function() {
+	$('.subscribe-result').html("Please wait while we are sending the file to your email.").fadeIn(1000);
+	
     var url = "download.php"; // the script where you handle the form input.
 
 	$.ajax({
@@ -7,10 +9,16 @@ $("#mc-form-submit").click(function() {
 		url: url,
 		data: $("#mc-form").serialize(), // serializes the form's elements.,
     	dataType: "json",
-		success: function(data) {			
-			if (data["success"]) {
-				alert(data["message"]);
-			}
+		success: function(resp) {
+			if (resp.result === 'success') {
+				$('.subscribe-result').html(resp.message).fadeIn(1000);
+				setTimeout(function(){
+					$('.subscribe-result').fadeOut(5000);
+					$('.subscribe-form input[type="email"]').val('');
+				}, 3000);
+			} else if(resp.result === 'error') {
+				$('.subscribe-result').html(resp.message).fadeIn(1000);
+			}  
 		}
      });
 
@@ -30,6 +38,7 @@ $(".team-image-link").click(function() {
 	$('#team-modal-role').text($(profileRole).text());
 	$('#team-modal-bio').text($(profileBio).text());
 	$('#team-modal-linked-in').text($(profileLinkedIn).text());
+	$('#team-modal-linked-in').attr("href", $(profileLinkedIn).text());
 	
 	return false;
 });

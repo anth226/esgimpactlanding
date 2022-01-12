@@ -12,30 +12,34 @@ $company = isset($_POST['cf-subject']) ? $_POST['cf-subject'] : '';
 $message = isset($_POST['cf-message']) ? $_POST['cf-message'] : '';
 $botCheck = isset($_POST['cf-botcheck']) ? true : false;
 
-if ($botCheck) {
-    // Send an email
-    $sendResult = $client->sendEmailWithTemplate(
-        "no-reply@aslingga.com",
-        "aslingga@gmail.com",
-        "esgi-contact-page",
-        [
-            "product_url" => "http://localhost",
-            "product_name" => "ESG Impact",
-            "user_name" => $name,
-            "user_email" => $email,
-            "user_company_name" => $company,
-            "user_message" => $message,
-            "company_name" => "Company Name",
-            "company_address" => "Company Address",        
-        ],
-    );
-    
-    if ($sendResult->errorcode == 0) {
-        echo json_encode(['success' => true, 'message' => 'Thank you for contacting us.']);
+try {
+    if ($botCheck) {
+        // Send an email
+        $sendResult = $client->sendEmailWithTemplate(
+            "no-reply@aslingga.com",
+            "aslingga@gmail.com",
+            "esgi-contact-page",
+            [
+                "product_url" => "http://localhost",
+                "product_name" => "ESG Impact",
+                "user_name" => $name,
+                "user_email" => $email,
+                "user_company_name" => $company,
+                "user_message" => $message,
+                "company_name" => "Company Name",
+                "company_address" => "Company Address",        
+            ],
+        );
+        
+        if ($sendResult->errorcode == 0) {
+            echo json_encode(['result' => 'success', 'alert' => 'success', 'message' => 'Thank you for contacting us.']);
+        } else {
+            echo json_encode(['result' => 'error', 'alert' => 'error', 'message' => 'An <strong>Unexpected Error</strong> has occurred! Pleas try again later.']);
+        }
     } else {
-        echo json_encode(['success' => false, 'message' => 'Email <strong>could not</strong> be sent due to some Unexpected Error. Please try again later.']);
+        echo json_encode(['result' => 'error', 'alert' => 'error', 'message' => 'Bot <strong>detected</strong>.! Clean yourself botster.']);
     }
-} else {
-    echo json_encode(['success' => false, 'message' => 'Bot <strong>detected</strong>.! Clean yourself botster.']);
+} catch (Exception $e) {
+    echo json_encode(['result' => 'error', 'alert' => 'error', 'message' => 'An <strong>Unexpected Error</strong> has occurred! Pleas try again later.']);
 }
 ?>
