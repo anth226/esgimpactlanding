@@ -286,20 +286,24 @@
 								<div class="col-md-4 sm-mb-30">
 									<div class="profile-card sm-text-center">
 										<div class="user-image">
-											<img src="./images/adam.jpg" alt="">
+											<a href="#team-modal" class="open-popup-link team-image-link"><img src="./images/adam.jpg" alt=""></a>
 										</div>
 										<h5 class="heading-uppercase mb-0 text-center">Adam Jace</h5>
 										<p class="role mb-0 text-center">Co-Founder</p>
+										<div class="bio" hidden>This is a biography of Adam Jace</div>
+										<div class="linked-in" hidden>https://www.linkedin.com/</div>
 									</div>
 								</div>
 								<!-- User -->
 								<div class="col-md-4 sm-mb-30">
 									<div class="profile-card sm-text-center">
 										<div class="user-image">
-											<img src="./images/max.jpg" alt="">
+											<a href="#team-modal" class="open-popup-link team-image-link"><img src="./images/max.jpg" alt=""></a>
 										</div>
 										<h5 class="heading-uppercase mb-0 text-center">Max Mona</h5>
 										<p class="role mb-0 text-center">Co-Founder</p>
+										<div class="bio" hidden>This is a biography of Max Mona</div>
+										<div class="linked-in" hidden>https://www.linkedin.com/max-mona</div>
 									</div>
 								</div>
 
@@ -307,10 +311,12 @@
 								<div class="col-md-4">
 									<div class="profile-card sm-text-center">
 										<div class="user-image">
-											<img src="./images/mike.jpg" alt="">
+											<a href="#team-modal" class="open-popup-link team-image-link"><img src="./images/mike.jpg" alt=""></a>
 										</div>
 										<h5 class="heading-uppercase mb-0 text-center">Mike Potter</h5>
 										<p class="role mb-0 text-center">Lead Developer</p>
+										<div class="bio" hidden>This is a biography of Mike Potter</div>
+										<div class="linked-in" hidden>https://www.linkedin.com/mike-potter</div>
 									</div>
 								</div>
 								
@@ -327,20 +333,24 @@
 								<div class="col-md-6 sm-mb-30">
 									<div class="profile-card sm-text-center">
 										<div class="user-image">
-											<img src="./images/mark.jpg" alt="">
+											<a href="#team-modal" class="open-popup-link team-image-link"><img src="./images/mark.jpg" alt=""></a>
 										</div>
 										<h5 class="heading-uppercase mb-0 text-center">Dr. Mark Cohen</h5>
 										<p class="role mb-0 text-center">ESG Advisor</p>
+										<div class="bio" hidden>This is a biography of Dr. Mark Cohen</div>
+										<div class="linked-in" hidden>https://www.linkedin.com/mark-cohen</div>
 									</div>
 								</div>
 								<!-- User -->
 								<div class="col-md-6 sm-mb-30">
 									<div class="profile-card sm-text-center">
 										<div class="user-image">
-											<img src="./images/tony.jpg" alt="">
+											<a href="#team-modal" class="open-popup-link team-image-link"><img src="./images/tony.jpg" alt=""></a>
 										</div>
 										<h5 class="heading-uppercase text-center">Tony Jace</h5>
 										<p class="role text-center">Business Advisor</p>
+										<div class="bio" hidden>This is a biography of Tony Jace</div>
+										<div class="linked-in" hidden>https://www.linkedin.com/tony-jace</div>
 									</div>
 								</div>
 							</div>
@@ -474,12 +484,37 @@
 					<form class="subscribe-form mb-0" method="post" id="mc-form">
 						<div class="row">
 							<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-8">
-								<input type="email" class="form-control dark" placeholder="Enter Your Email Address">
-								<button class="btn btn-white btn-shadow btn-noradius btn-fullwidth" type="submit" id="submit" name="submit">Send</button>
+								<input type="email" class="form-control dark" placeholder="Enter Your Email Address" id="mc-form-email">
+								<button class="btn btn-white btn-shadow btn-noradius btn-fullwidth" type="submit" id="mc-form-submit" name="mc-form-submit">Send</button>
 							</div>
 						</div>
 					</form>
 					<p class="subscribe-result text-white"></p>
+				</div>
+			</div>
+			
+			<!-- Team Modal -->
+			<div id="team-modal" class="mfp-modal mfp-close-btn-white mfp-with-anim mfp-hide">
+				<div class="overlay">
+					<div class="overlay-wrapper">
+						<div class="overlay-inner cover-background" style="background-image: url('demo/images/image-2.jpg');"></div>
+						<div class="overlay-inner background-dark-9 opacity-50"></div>
+					</div>
+				</div>
+				<div class="mfp-modal-content text-center pt-120 pb-120">
+					<div class="row">
+						<div class="col-md-10 col-md-offset-1">
+							<img src="./images/adam.jpg" alt="" width="50%" id="team-modal-image">
+							<h2 class="text-white font-normal mt-10" id="team-modal-name">Team Name</h2>
+							<p class="lead text-white font-normal mb-10" id="team-modal-role">Role</p>
+						</div>
+					</div>
+					<div class="divider divider-alt divider-light divider-center"></div>
+					<div>
+						<p class="text-white mb-0" id="team-modal-bio"></p>
+						<a class="text-white mb-0" id="team-modal-linked-in"></a>
+					</div>
+					<p class="team-result text-white"></p>
 				</div>
 			</div>
 			
@@ -545,6 +580,7 @@
 		<script type="text/javascript" src="js/photoswipe-ui-default.min.js"></script>
 
 		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/custom.js"></script>
 
 	</body>
 </html>
