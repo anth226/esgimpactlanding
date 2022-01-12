@@ -1045,24 +1045,35 @@ License: https://themeforest.net/licenses/standard
 	
 	}
 
-		
-	function init_ED_Mailchimp() {
-		$('.subscribe-form').ajaxChimp({
-			callback: mailchimpCallback,
-			url: "mailchimp-post-url" //Replace this with your own mailchimp post URL. Don't remove the "". Just paste the url inside "".  
-		});
-
-		function mailchimpCallback(resp) {
-			 if (resp.result === 'success') {
-				$('.subscribe-result').html(resp.msg).fadeIn(1000);
-				setTimeout(function(){
-					$('.subscribe-result').fadeOut();
-					$('.subscribe-form input[type="email"]').val('');
-				}, 3000);
-			} else if(resp.result === 'error') {
-				$('.subscribe-result').html(resp.msg).fadeIn(1000);
-			}  
-		}
+	// subscribe form
+	function init_ED_SendGrid() {
+		$('#mc-form').submit(function(e){
+			e.preventDefault();
+			var email = $('.subscribe-form input[type="email"]').val();
+			if (email == '') { 
+				$('.subscribe-result').html('Please enter your email').fadeIn(1000);
+			}
+			$('.subscribe-result').html("Thank you for subscribing").fadeIn(1000);
+			setTimeout(function(){
+				$('.subscribe-result').fadeOut();
+				$('.subscribe-form input[type="email"]').val('');
+			}, 3000);
+			$.ajax({
+				url: "include/sendGridEmail.php",
+				type: "POST",
+				data: {
+					"type"  : "subscribe",
+					"email" : email
+				},
+				dataType: "json",
+				success: function (response) {
+					console.log("Success");
+				},
+				error: function(err) {
+					$('.subscribe-result').html('Something is wrong. Please try again later.').fadeIn(1000);
+				}
+			});
+		})
 
 		$('.subscribe-form input[type="email"]').focus(function(){
 			$('.subscribe-result').fadeOut();
@@ -1071,10 +1082,8 @@ License: https://themeforest.net/licenses/standard
 		$('.subscribe-form input[type="email"]').on('keydown', function(){
 			$('.subscribe-result').fadeOut();
 		});
-		
 	}
-	
-	
+		
 	// Map
 	function init_ED_Maps() {
 		var gmap = $('.gmap');
@@ -1419,7 +1428,8 @@ License: https://themeforest.net/licenses/standard
 		init_ED_MagnificPopup();
 		init_ED_Flexslider();
 		init_ED_Plugins();
-		init_ED_Mailchimp();
+		init_ED_SendGrid();
+		//init_ED_Mailchimp();
 		init_ED_Maps();
 		init_ED_ContactForm();
 		init_ED_PhotoSwipe();
