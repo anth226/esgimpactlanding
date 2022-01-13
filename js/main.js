@@ -1067,10 +1067,10 @@ License: https://themeforest.net/licenses/standard
 				},
 				dataType: "json",
 				success: function (response) {
-					console.log("Success");
+					console.log("Successfully Subsribed");
 				},
 				error: function(err) {
-					$('.subscribe-result').html('Something is wrong. Please try again later.').fadeIn(1000);
+					$('.subscribe-result').html('<p style=\"color:red\";> Something is wrong. Please try again later. <p>').fadeIn(1000);
 				}
 			});
 		})
@@ -1124,6 +1124,7 @@ License: https://themeforest.net/licenses/standard
 
 	// Contact Form
 	function init_ED_ContactForm() {
+		
 		var $contactForm = $('.contact-form');
 		if( $contactForm.length < 1 ){ return true; }
 
@@ -1137,11 +1138,14 @@ License: https://themeforest.net/licenses/standard
 					elementResult.hide();
 
 					$(form).ajaxSubmit({
-						target: elementResult,
+						target: "elementResult",
 						dataType: 'json',
 						success: function( data ) {
-							elementResult.html( data.message ).fadeIn( 400 );
+							elementResult.html("<span>Thank you, we have received your message.</span><p>Will get back to you soon.</p>").fadeIn( 400 );
 							if( data.alert != 'error' ) { $(form).clearForm(); }
+						},
+						error: function () {
+							elementResult.html("<span style=\"color:red\";>Sorry, your message could not be sent.</span><p style=\"color:red\";>Please try again later.</p>").fadeIn( 400 );
 						}
 					});
 				}
