@@ -20,11 +20,12 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $support      = 'contact@esgi.io';
         if ($type == "subscribe") {
             $file    = 'ESGi_One_Pager.pdf';
-            $subject = 'ESG Impact : You\'re on the list';
-            $message = '<div style="text-align: center;" title="Page 1">&nbsp;</div>
-            <h2 style="text-align: center;">Thank you for subscribing.</h2>
-            <p style="text-align: center;">Soon you\'ll get a chance to try all the new features we\'ve<br />been building for ESG Impact.</p>
-            <p style="text-align: center;">Please check our one pager for more information.</p>';
+            $subject = 'Welcome to ESGi';
+            $message = '<p>To whom it may concern,</p>
+            <p>Thank you for subscribing to ESGi. We\'ll be sending you some very exciting updates over the coming months as we are preparing our Q2, 2022 beta launch.</p>
+            <p>We\'ve attached a one-page PDF that describes what we do, whom we serve, and our focus on equipping private markets with ESG data-driven insights. It is our hope that companies adopt our ESGi software to help them find the prudent balance of profit and impact.</p>
+            <p>If you are interested in joining ESGi in our upcoming beta or have any questions for a member of our team, please contact&nbsp;Maxmona@ESGi.io&nbsp;for more information.</p>
+            <p>Thank you, <br />Max Mona <br />Co-Founder</p>';
 
         } else {
 
