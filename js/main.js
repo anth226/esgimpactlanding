@@ -1425,15 +1425,23 @@ License: https://themeforest.net/licenses/standard
 			var role = e.parent().find('.role').html();
 			var linkTwitter = e.parent().find('.link-twitter').html();
 			var linkgLinkedin = e.parent().find('.link-linkedin').html();
-			var achievement = e.parent().find('.achievement').html();
+			var description = e.parent().find('.description').html();
 
 
 			$('#profileModal .name').html(name);
 			$('#profileModal .model-profile-img').attr("src", profileImgSrc);
 			$('#profileModal .role').html(role);
-			$('#profileModal .modal-link .twitter').attr("href", 'http://'+linkTwitter);
-			$('#profileModal .modal-link .linkedin').attr("href", 'http://'+vlinkgLinkedin);
-			$('#profileModal .achievement').html(achievement);
+			if (linkTwitter == '') {
+				$('#profileModal .modal-link .twitter').hide();
+			} else {
+				$('#profileModal .modal-link .twitter').attr("href",linkTwitter);
+			}
+			if (linkgLinkedin == '') {
+				$('#profileModal .modal-link .linkedin').hide();
+			} else {
+				$('#profileModal .modal-link .linkedin').attr("href",linkgLinkedin);
+			}
+			$('#profileModal .description').html(description);
 
 		});
 	}
