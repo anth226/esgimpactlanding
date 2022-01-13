@@ -1045,24 +1045,35 @@ License: https://themeforest.net/licenses/standard
 	
 	}
 
-		
-	function init_ED_Mailchimp() {
-		$('.subscribe-form').ajaxChimp({
-			callback: mailchimpCallback,
-			url: "mailchimp-post-url" //Replace this with your own mailchimp post URL. Don't remove the "". Just paste the url inside "".  
-		});
-
-		function mailchimpCallback(resp) {
-			 if (resp.result === 'success') {
-				$('.subscribe-result').html(resp.msg).fadeIn(1000);
-				setTimeout(function(){
-					$('.subscribe-result').fadeOut();
-					$('.subscribe-form input[type="email"]').val('');
-				}, 3000);
-			} else if(resp.result === 'error') {
-				$('.subscribe-result').html(resp.msg).fadeIn(1000);
-			}  
-		}
+	// subscribe form
+	function init_ED_SendGrid() {
+		$('#mc-form').submit(function(e){
+			e.preventDefault();
+			var email = $('.subscribe-form input[type="email"]').val();
+			if (email == '') { 
+				$('.subscribe-result').html('Please enter your email').fadeIn(1000);
+			}
+			$('.subscribe-result').html("Thank you for subscribing").fadeIn(1000);
+			setTimeout(function(){
+				$('.subscribe-result').fadeOut();
+				$('.subscribe-form input[type="email"]').val('');
+			}, 3000);
+			$.ajax({
+				url: "include/sendGridEmail.php",
+				type: "POST",
+				data: {
+					"type"  : "subscribe",
+					"email" : email
+				},
+				dataType: "json",
+				success: function (response) {
+					console.log("Successfully Subsribed");
+				},
+				error: function(err) {
+					$('.subscribe-result').html('<p style=\"color:red\";> Something is wrong. Please try again later. <p>').fadeIn(1000);
+				}
+			});
+		})
 
 		$('.subscribe-form input[type="email"]').focus(function(){
 			$('.subscribe-result').fadeOut();
@@ -1071,10 +1082,8 @@ License: https://themeforest.net/licenses/standard
 		$('.subscribe-form input[type="email"]').on('keydown', function(){
 			$('.subscribe-result').fadeOut();
 		});
-		
 	}
-	
-	
+		
 	// Map
 	function init_ED_Maps() {
 		var gmap = $('.gmap');
@@ -1115,6 +1124,7 @@ License: https://themeforest.net/licenses/standard
 
 	// Contact Form
 	function init_ED_ContactForm() {
+		
 		var $contactForm = $('.contact-form');
 		if( $contactForm.length < 1 ){ return true; }
 
@@ -1128,11 +1138,14 @@ License: https://themeforest.net/licenses/standard
 					elementResult.hide();
 
 					$(form).ajaxSubmit({
-						target: elementResult,
+						target: "elementResult",
 						dataType: 'json',
 						success: function( data ) {
-							elementResult.html( data.message ).fadeIn( 400 );
+							elementResult.html("<span>Thank you, we have received your message.</span><p>Will get back to you soon.</p>").fadeIn( 400 );
 							if( data.alert != 'error' ) { $(form).clearForm(); }
+						},
+						error: function () {
+							elementResult.html("<span style=\"color:red\";>Sorry, your message could not be sent.</span><p style=\"color:red\";>Please try again later.</p>").fadeIn( 400 );
 						}
 					});
 				}
@@ -1401,6 +1414,29 @@ License: https://themeforest.net/licenses/standard
 		initPhotoSwipeFromDOM('.portfolio-gallery');
 		
 	}
+
+	// init Modal
+	function init_ED_ProfilModal() {
+		$('.user-image').click(function(e){
+			e.preventDefault();
+			var e = $(this);
+			var profileImgSrc = e.find('img').attr("src");
+			var name = e.parent().find('.heading-uppercase').html();
+			var role = e.parent().find('.role').html();
+			var linkTwitter = e.parent().find('.link-twitter').html();
+			var linkgLinkedin = e.parent().find('.link-linkedin').html();
+			var achievement = e.parent().find('.achievement').html();
+
+
+			$('#profileModal .name').html(name);
+			$('#profileModal .model-profile-img').attr("src", profileImgSrc);
+			$('#profileModal .role').html(role);
+			$('#profileModal .modal-link .twitter').attr("href", 'http://'+linkTwitter);
+			$('#profileModal .modal-link .linkedin').attr("href", 'http://'+vlinkgLinkedin);
+			$('#profileModal .achievement').html(achievement);
+
+		});
+	}
 	
 
 	// window load function
@@ -1419,7 +1455,8 @@ License: https://themeforest.net/licenses/standard
 		init_ED_MagnificPopup();
 		init_ED_Flexslider();
 		init_ED_Plugins();
-		init_ED_Mailchimp();
+		init_ED_SendGrid();
+		init_ED_ProfilModal();
 		init_ED_Maps();
 		init_ED_ContactForm();
 		init_ED_PhotoSwipe();

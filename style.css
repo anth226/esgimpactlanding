@@ -2035,6 +2035,7 @@ div.pswp__caption__center {
 	margin: 0 auto;
 	margin-bottom: 25px;
 	border-bottom: 3px solid #B7824B;
+	cursor: pointer;
 }
 
 .profile-card .user-image img {
