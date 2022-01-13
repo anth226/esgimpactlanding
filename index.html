@@ -7,13 +7,17 @@
 		<!-- Meta Data -->
 		<meta http-equiv="content-type" content="text/html;charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="">
+		<meta name="description" content="Our mission at ESG Impact (ESGi) is to democratize ESG for the modern business. Our goal is to help our clients find the prudent balance between impactand profit.">
 		<meta name="keywords" content="">
-		<meta name="author" content="Adam Jace">
+		<meta name="author" content="ESG Impact">
+
+		<meta property="og:image" content="https://esgi.io/images/stars1.jpg" />
+		<meta property="og:image:type" content="image/jpg" />
 
 		<!-- CSS Global Compulsory -->
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="style.css">
+		<meta property="og:title" content="ESG Impact" />
 
 		<!-- CSS Implementing Plugins -->
 		<link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
@@ -27,6 +31,8 @@
 		<link rel="stylesheet" href="css/photoswipe/default-skin/default-skin.css"> 
 
 		<link rel="stylesheet" href="css/custom.css">
+		<link rel="stylesheet" href="css/animButton.css" type="text/css">
+
 
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -59,6 +65,32 @@
 
 		<div class="main-container">
 
+			<!-- Privacy Modal -->
+			<div class="modal fade" id="privacyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <h5 class="modal-title" id="exampleModalLabel">Privacy Policy</h5>
+					  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+					<div class="modal-body">
+						To ensure transparency and give you more control over your personal information, this privacy policy governs how we, ESG Impact Inc. and its subsidiaries and affiliates (all together, “ESGi” “we”, “our” or “us”) use, collect and store personal data we collect or receive from or about you (“you”) such as in the following use cases:
+						1. When you browse or visit our website, https://www.esgi.io/
+						2. When you or interact with the contact form
+						3. When you complete a survey/questionnaire
+						4. When you subscribe to our newsletter(s) / blog(s)
+						We greatly respect your privacy, which is why we make every effort to provide a platform that would live up to the highest of user privacy standards. Please read this Privacy Policy carefully, so you can fully understand our practices in relation to personal data. “Personal Data” or “Personal Information” means any information that can be used, alone or together with other data, to uniquely identify any living human being.
+						This Privacy Policy will be updated as our internet services and solutions continue to grow. We ask you to check for the latest version on our website. If we implement a significant change to the way we store or use your personal data, we will post a notice on our Website or email you with a set the changes.
+					</div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+					</div>
+				  </div>
+				</div>
+			</div>
+
 			<!-- Main Header -->
 			<header class="main-header header-mobile-light menu-light menu-mobile-dark">
 				<div class="header-block brand-block">
@@ -78,7 +110,6 @@
 					<ul class="nav">
 						<li class="active"><a href="#home" class="load-content">Home</a></li>
 						<li><a href="#about" class="load-content">About</a></li>
-						<!-- <li><a href="#services" class="load-content">Services</a></li> -->
 						<li><a href="#solutions" class="load-content">Solutions</a></li>
 						<li><a href="#team" class="load-content">Our Team</a></li>
 						<li><a href="#contact" class="load-content">Contact</a></li>
@@ -89,10 +120,10 @@
 			<div class="function-buttons style-light">
 			
 				<!-- Close Block Button -->
-				<a href="#home" class="function-btn close-block load-content" style="background-color: #B7824B;"><i class="ion-android-close" style="color: rgba(11,33,45,1)"></i></a>
+				<a href="#home" class="function-btn close-block load-content" style="background-color: rgb(11,33,45);"><i class="ion-android-close" style="color: rgb(255, 255, 255)"></i></a>
 
 				<!-- Back To Top Block Button -->
-				<a href="#" class="function-btn backtotop-block"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+				<a href="#" class="function-btn backtotop-block" style="background-color: rgb(11,33,45);"><i class="fa fa-angle-up" aria-hidden="true" style="color: rgb(255, 255, 255)"></i></a>
 				
 			</div>
 
@@ -125,7 +156,6 @@
 											<div class="animated onstart" data-animation="fadeInUp" data-animation-delay="300" data-effect="fade" data-pagination="false" data-directionnav="false">
 												<h1 class="font-large text-white ">ESG Impact</h1>
 											</div>
-
 											<p class="lead text-white animated onstart" data-animation="fadeInUp" data-animation-delay="600">
 												Equipping private markets with ESG data, </br>resources, and insights.
 											</p>
@@ -134,6 +164,7 @@
 												<a href="#about" class="btn btn-white btn-border icon-right btn-noradius load-content">Learn More <i class="fa fa-angle-right" aria-hidden="true"></i></a>
 											</div>
 										</div>
+										
 									</div>
 								</div>
 							</div>
@@ -155,23 +186,14 @@
 									<div class="divider divider-alt divider-center divider-dark"></div>
 									<p class="lead mb-50 text-center">Democratizing ESG for the Modern Business</p>
 									<p>
-										We believe that it is much easier and more impactful for a company to integrate ESG 
-										from the beginning. This will help lead the incoming generational shift of unicorns and Fortune 500 companies 
-										that will prioritize more diverse and inclusive environments, employee health and safety, 
-										and environmental protection. As we move forward in this climate, 
-										every deal will be scrutinized on ESG parameters.Private equity, venture capital, 
-										and all comapnies will need to embed ESG across all transactions,
-										not only those obstensibly geared to those ends.
+										We believe that it is much easier and more impactful for a company to integrate ESG from the beginning. This will help lead the incoming generational shift of unicorns and Fortune 500 companies to prioritize more diverse and inclusive environments, employee health and safety, and environmental protection. As we move forward in this climate, every deal will be scrutinized on ESG parameters. Private equity, venture capital, and all companies will need to embed ESG across all transactions, not only those ostensibly geared to those ends.
 									</p>
 									<p class="mb-0">
-										Our mission at ESG Impact ("ESGi") is to democratize ESG for the modern business. 
-										Ethical practices and frameworks should not be a costly endeavor. Our goal is to help our clients 
-										find the prudent balance between 
+										Our mission at ESG Impact ("ESGi") is to democratize ESG for the modern business. Often, companies outsource their conscience to consultants because of the difficulties in identifying ethical business practices material to their operations. We have built an accessible resource that allows companies and funds to build their foundation from the ground up, all while keeping control of their internal operations. At ESGi, our goal is to help our clients find the prudent balance between 
 										<strong style="color:#B7824B">impact</strong> 
 										and 
 										<strong style="color:#B7824B">profit</strong>
-										. Not all companies need to prioritize ESG, but all 
-										need to abide by ethical standards.
+										.
 									</p>
 								</div>
 							</div>
@@ -184,7 +206,7 @@
 								<div class="mt-50">
 									<h2 class="text-center">Our Solutions</h2>
 									<div class="divider divider-alt divider-center divider-dark"></div>
-									<p class="lead text-center">Helping private markets address ESG practices to unlock greater opportunities for investments, talent, and reputation.</p>						
+									<p class="lead text-center">Helping private markets address ESG practices to unlock greater opportunities for investments, talent, and longevity.</p>						
 								</div>
 							</div>
 							<div class="row">
@@ -252,24 +274,6 @@
 							</div>
 						</div>
 					</section>
-
-					<!-- <section id="solutions" class="section" style="padding: 0px">
-						<div class="container">
-							<div class="row">
-								<div class="col-md-12 mb-50">
-									<h2 class="text-center">Solutions</h2>
-									<div class="divider divider-alt divider-center divider-dark"></div>
-										
-									<p class="lead mb-50 text-center">
-										Helping you find the prudent balance between <strong style="color:#B7824B">impact</strong> and <strong style="color:#B7824B">profit</strong></p>
-									<p>
-										<strong style="color:#B7824B">Start-ups: </strong>
-										Build an ethical framework with our:
-									</p>
-								</div>
-							</div>
-						</div>
-					</section> -->
 					
 					<section id="team" class="section" style="padding: 0px">
 						<div class="container">
@@ -339,7 +343,7 @@
 										<div class="user-image">
 											<img src="./images/tony.jpg" alt="">
 										</div>
-										<h5 class="heading-uppercase text-center">Tony Jace</h5>
+										<h5 class="heading-uppercase mb-0 text-center">Tony Jace</h5>
 										<p class="role text-center">Business Advisor</p>
 									</div>
 								</div>
@@ -353,7 +357,7 @@
 								<div class="col-md-8 col-md-offset-2">
 									<h2 class="text-center">Contact Us</h2>
 									<div class="divider divider-alt divider-center divider-dark"></div>
-									<p class="lead text-center mb-50">Reach out and we will get back to you as soon as possible!
+									<p class="lead text-center mb-50">Interested in our upcoming beta? Want to speak with a member of our team? Reach out below using our contact form and we will get back to you as soon as possible.
 
 									</p>
 								</div>
@@ -442,7 +446,7 @@
 					<p class="copyright">© 2022 ESG Impact Inc. - All Rights Reserved</p>
 					<nav class="socials-icons">
 						<div>
-							<a href="#" class="text-muted"><i>Privacy Policy</i></a>
+							<button type="button" class="btn btn-link" data-toggle="modal" data-target="#privacyModal"><i>Privacy Policy</i></button>
 						</div>
 						<!-- <ul>
 							<li><a href="#" class="social-icon"><i class="fa fa-facebook"></i></a></li>
@@ -466,16 +470,22 @@
 				<div class="mfp-modal-content text-center pt-120 pb-120">
 					<div class="row">
 						<div class="col-md-10 col-md-offset-1">
-							<h2 class="text-white font-normal">Get our latest content and one pager in your inbox</h2>
+							<h2 class="text-white font-normal">Join the ESGi Community & Donwload our One-Pager</h2>
 						</div>
 					</div>
 					<div class="divider divider-alt divider-light divider-center"></div>
-					<p class="lead text-white mb-50">Please enter your email address below to be added into the ESGi community and receive our one pager.</p>
+					<p class="lead text-white mb-50">Enter your email address below to download.</p>
 					<form class="subscribe-form mb-0" method="post" id="mc-form">
 						<div class="row">
 							<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-8">
 								<input type="email" class="form-control dark" placeholder="Enter Your Email Address">
-								<button class="btn btn-white btn-shadow btn-noradius btn-fullwidth" type="submit" id="submit" name="submit">Send</button>
+								<!-- <button class="btn btn-white btn-shadow btn-noradius btn-fullwidth" type="submit" id="submit" name="submit">Send</button> -->
+								<button class="animBtn" data-btn>Submit</button>
+								<div class="checkmark-container">
+									<svg x="0px" y="0px" fill="none" class="checkmark-svg" viewBox="0 0 25 30">
+										<path d="M2,19.2C5.9,23.6,9.4,28,9.4,28L23,2"/>
+									</svg>
+								</div>
 							</div>
 						</div>
 					</form>
@@ -538,6 +548,7 @@
 		</div>
 
 		<!-- JS -->
+		<script src="./js/animButton.js" defer></script>
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script type="text/javascript" src="js/plugins.js"></script>
