@@ -1410,6 +1410,29 @@ License: https://themeforest.net/licenses/standard
 		initPhotoSwipeFromDOM('.portfolio-gallery');
 		
 	}
+
+	// init Modal
+	function init_ED_ProfilModal() {
+		$('.user-image').click(function(e){
+			e.preventDefault();
+			var e = $(this);
+			var profileImgSrc = e.find('img').attr("src");
+			var name = e.parent().find('.heading-uppercase').html();
+			var role = e.parent().find('.role').html();
+			var linkTwitter = e.parent().find('.link-twitter').html();
+			var linkgLinkedin = e.parent().find('.link-linkedin').html();
+			var achievement = e.parent().find('.achievement').html();
+
+
+			$('#profileModal .name').html(name);
+			$('#profileModal .model-profile-img').attr("src", profileImgSrc);
+			$('#profileModal .role').html(role);
+			$('#profileModal .modal-link .twitter').attr("href", 'http://'+linkTwitter);
+			$('#profileModal .modal-link .linkedin').attr("href", 'http://'+vlinkgLinkedin);
+			$('#profileModal .achievement').html(achievement);
+
+		});
+	}
 	
 
 	// window load function
@@ -1429,7 +1452,7 @@ License: https://themeforest.net/licenses/standard
 		init_ED_Flexslider();
 		init_ED_Plugins();
 		init_ED_SendGrid();
-		//init_ED_Mailchimp();
+		init_ED_ProfilModal();
 		init_ED_Maps();
 		init_ED_ContactForm();
 		init_ED_PhotoSwipe();

@@ -21,7 +21,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
             $message = '<div style="text-align: center;" title="Page 1">&nbsp;</div>
             <h2 style="text-align: center;">Thank you for subscribing.</h2>
             <p style="text-align: center;">Soon you\'ll get a chance to try all the new features we\'ve<br />been building for ESG Impact.</p>
-            <p style="text-align: center;">Please check our our one pager for more information.</p>';
+            <p style="text-align: center;">Please check our one pager for more information.</p>';
             $from    = 'adamjace@esgi.io';
             $to      = $email;
 
