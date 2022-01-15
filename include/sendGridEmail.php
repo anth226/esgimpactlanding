@@ -1,11 +1,6 @@
 <?php
 
-require '../vendor/autoload.php';
-
-$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__, 1));
-$dotenv->load();
-
-$pass = $_ENV['API_KEY'];
+$pass = getenv('SENDGRID_API_KEY');
 
 $url = 'https://api.sendgrid.com/';
 
@@ -19,6 +14,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         $to      = $client_email;
         $support      = 'contact@esgi.io';
         if ($type == "subscribe") {
+
             $file    = 'ESGi_One_Pager.pdf';
             $subject = 'Welcome to ESGi';
             $message = '<p>To whom it may concern,</p>
@@ -43,6 +39,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
             <p>&nbsp;</p>
             <p>Thank you,</p>
             <p>ESGi Team</p>";
+
         }
 
         $params = array(
